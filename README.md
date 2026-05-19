@@ -120,3 +120,9 @@ Additional editors sometimes used in class or for specific tasks:
 ## Supplemental resources
 
 - [HTML in Kurdish](https://www.youtube.com/playlist?list=PLkqoLa_-ZJ0inRQKrSXdq2A4TVuupW2ZV) — optional playlist for HTML fundamentals
+
+- [CSS in Kurdish](https://www.youtube.com/watch?v=IIzNgkQhWNI&list=PLQ68mHW2_7KHk1J4jiMlbMev8hAOGi6Xg) — optional playlist for CSS fundamentals
+
+- [JavaScript in Kurdish](https://www.youtube.com/playlist?list=PLDPXog3mqHRZrpH9USImBHLu2FXUS4RTT) — optional playlist for JavaScript fundamentals
+
+- [Git in Kurdish](https://www.youtube.com/watch?v=FdJL9kyfGIw&list=PLDPXog3mqHRa5F7S6-Z5Cwn00xniFGPP_&index=1) — optional playlist for Git fundamentals
