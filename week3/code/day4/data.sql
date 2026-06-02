@@ -1,3 +1,37 @@
+CREATE TABLE IF NOT EXISTS teachers (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(150),
+  course_id INT
+);
+
+CREATE TABLE IF NOT EXISTS students (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(150),
+  gender CHAR(1),
+  course_id INT
+);
+
+CREATE TABLE IF NOT EXISTS courses (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(255),
+  classroom VARCHAR(100)
+);
+
+CREATE TABLE IF NOT EXISTS schedules (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  course_id INT,
+  teacher_id INT,
+  date DATE
+);
+
+CREATE TABLE IF NOT EXISTS attendances (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  schedule_id INT,
+  student_id INT,
+  session CHAR(2),
+  status TINYINT NOT NULL
+);
+
 INSERT INTO courses (id, name, classroom) VALUES
 (1, 'Software Development', 'Lab 137'),
 (2, 'Marketing and Social Media', 'Lab 134'),
