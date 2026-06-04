@@ -1,5 +1,26 @@
 # Project Initialization
 
+## Prerequisites
+
+- Git Bash (only on Windows)
+- Node.js
+- VS Code
+- REST Client extension in VS Code
+
+## Setup Git Bash
+
+Install Git Bash from the following link: [Git Bash](https://git-scm.com/install/windows)
+
+## Install Node.js
+
+Open Git Bash and run the following commands:
+
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
+\. "$HOME/.nvm/nvm.sh"
+nvm install 24
+```
+
 ## Create a new directory for the project
 
 ```bash
@@ -33,6 +54,10 @@ const app = express();
 
 app.get('/', (req, res) => {
     res.send('Hello World');
+});
+
+app.listen(3000, () => {
+    console.log('Server is running on port 3000');
 });
 ```
 
