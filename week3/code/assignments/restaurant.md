@@ -90,6 +90,11 @@ You need to design the database schema and write SQL queries to manage the resta
 11. Calculate the average order amount.
 12. Show customers who ordered more than 3 times.
 
+## Required Software
+
+ - [MySQL 8](https://dev.mysql.com/downloads/mysql/8.0.html)
+ - [TablePlus](https://tableplus.com/)
+
 ## Submission
 
 Add all your SQL code in a single file named `restaurant.sql` and send it to me via email: [dilovan.salahadeen@auk.edu.krd](mailto:dilovan.salahadeen@auk.edu.krd)
