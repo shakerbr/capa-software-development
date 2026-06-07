@@ -50,6 +50,7 @@ app.get('/students/:id', (req, res) => {
 
 app.post('/students', express.json(), (req, res) => {
     const { name, gender, course_id } = req.body;
+
     connection.query(
         'INSERT INTO students (name, gender, course_id) VALUES (?, ?, ?)',
         [name, gender, course_id],
@@ -67,7 +68,7 @@ app.post('/students', express.json(), (req, res) => {
 app.put('/students/:id', express.json(), (req, res) => {
     const studentId = req.params.id;
     const { name, gender, course_id } = req.body;
-    
+
     connection.query(
         'UPDATE students SET name = ?, gender = ?, course_id = ? WHERE id = ?',
         [name, gender, course_id, studentId],
@@ -80,6 +81,28 @@ app.put('/students/:id', express.json(), (req, res) => {
                     res.status(404).send('Student not found');
                 } else {
                     res.json({ id: studentId, name });
+                }
+            }
+        }
+    );
+});
+
+app.patch('/students/:id', express.json(), (req, res) => {
+    const studentId = req.params.id;
+    const { course_id } = req.body;
+
+    connection.query(
+        'UPDATE students SET course_id = ? WHERE id = ?',
+        [course_id, studentId],
+        (err, results) => {
+            if (err) {
+                console.error('Error:', err);
+                res.status(500).send('Error in DATABASE');
+            } else {
+                if (results.affectedRows === 0) {
+                    res.status(404).send('Student not found');
+                } else {
+                    res.json({ id: studentId, course_id });
                 }
             }
         }

@@ -25,7 +25,16 @@ PUT http://localhost:3000/students/3
 Content-Type: application/json
 
 {
-    "name": "Zaki",
+    "name": "Zaki Ahmed",
     "gender": "m",
     "course_id": 2
+}
+
+### Partial Update Student (course_id)
+
+PATCH http://localhost:3000/students/3
+Content-Type: application/json
+
+{
+    "course_id": 3
 }
