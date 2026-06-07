@@ -38,3 +38,6 @@ Content-Type: application/json
 {
     "course_id": 3
 }
+
+### Delete Student
+DELETE http://localhost:3000/students/3

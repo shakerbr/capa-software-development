@@ -109,6 +109,25 @@ app.patch('/students/:id', express.json(), (req, res) => {
     );
 });
 
+app.delete('/students/:id', (req, res) => {
+    const studentId = req.params.id;
+
+    connection.query('DELETE FROM students WHERE id = ?', [studentId], (err, results) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send('Error deleting student');
+            return;
+        }
+
+        if (results.affectedRows === 0) {
+            res.status(404).send('Student not found');
+            return;
+        }
+
+        res.sendStatus(204);
+    });
+});
+
 app.listen(3000, () => {
     console.log('Server is running on port 3000');
 });
