@@ -1,0 +1,13 @@
+GET http://localhost:3003
+
+###
+
+POST http://localhost:3003/register
+Content-Type: application/json
+
+{
+    "name": "Areen Mohammed",
+    "email": "areen.mohammed@example.com",
+    "password": "123",
+    "birthdate": "1995-05-15"
+}
