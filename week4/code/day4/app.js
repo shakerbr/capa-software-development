@@ -1,6 +1,8 @@
 import express from 'express';
 import mysql from 'mysql2';
 import dotenv from 'dotenv';
+import jwt from 'jsonwebtoken';
+import bcrypt from 'bcryptjs';
 
 dotenv.config();
 
@@ -26,9 +28,11 @@ app.post('/register', async (req, res) => {
     return res.status(400).json({ error: 'name, email, and password are required' });
   }
 
+  const passwordHash = await bcrypt.hash(password, 10);
+
   const [result] = await pool.query(
     'INSERT INTO users (name, email, password, birthdate) VALUES (?, ?, ?, ?)',
-    [name, email, password, birthdate]
+    [name, email, passwordHash, birthdate]
   );
 
   res.json({ message: 'You are registered successfully', userId: result.insertId });
