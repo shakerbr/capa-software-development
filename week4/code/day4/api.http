@@ -6,8 +6,18 @@ POST http://localhost:3003/register
 Content-Type: application/json
 
 {
-    "name": "Areen Mohammed",
-    "email": "areen.mohammed@example.com",
+    "name": "Areen Mohammed 2",
+    "email": "areen.mohammed2@example.com",
     "password": "123",
     "birthdate": "1995-05-15"
+}
+
+###
+
+POST http://localhost:3003/login
+Content-Type: application/json
+
+{
+    "email": "areen.mohammed2@example.com",
+    "password": "123"
 }

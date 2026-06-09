@@ -38,6 +38,31 @@ app.post('/register', async (req, res) => {
   res.json({ message: 'You are registered successfully', userId: result.insertId });
 });
 
+app.post('/login', async (req, res) => {
+  const { email, password } = req.body;
+
+  if (!email || !password) {
+    return res.status(400).json({ error: 'Email and password are required' });
+  }
+
+  const [result] = await pool.query('SELECT * FROM users WHERE email = ?', [email]);
+
+  if (result.length === 0) {
+    return res.status(401).json({ error: 'Invalid email or password' });
+  }
+
+  const user = result[0];
+  const isPasswordValid = await bcrypt.compare(password, user.password);
+
+  if (!isPasswordValid) {
+    return res.status(401).json({ error: 'Invalid email or password' });
+  }
+
+  const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET, { expiresIn: '8h' });
+
+  res.json({ message: 'You are logged in successfully', token });
+});
+
 app.listen(3003, () => {
   console.log('Server is running on port 3003');
 });
