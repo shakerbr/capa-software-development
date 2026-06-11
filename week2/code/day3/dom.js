@@ -7,6 +7,6 @@ const element = document.createElement("p");
 element.textContent = "AUK";
 element.style.color = "blue";
 element.style.fontSize = "24px"; // font-size: 24px;
-element.backgroundColor = "yellow"; // background-color: yellow;
+element.style.backgroundColor = "yellow"; // background-color: yellow;
 
 container.appendChild(element);
