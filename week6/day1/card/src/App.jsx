@@ -10,21 +10,6 @@ const starterPeople = [
   },
 ];
 
-const starterPeople = [
-  {
-    name: 'Mrove ni',
-    age: 45,
-    department: 'Engineering',
-    city: 'Erbil',
-  },
-    {
-      name: 'Sara Ali',
-      age: 25,
-      department: 'Engineering',
-      city: 'Duhok',
-    },
-];
-
 function App() {
   const cities = ['Duhok', 'Erbil', 'Baghdad', 'Sulaymaniyah', 'Mosul'];
   const [people, setPeople] = useState(starterPeople);
