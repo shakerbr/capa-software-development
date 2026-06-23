@@ -5,11 +5,24 @@ function Login () {
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
 
-    function handleLogin () {
+    async function handleLogin () {
         if (email === "" || password === ""){
             setError("Please fill in all fields");
-        } else {
-            setError("");
+            return;
+        }
+        
+        setError("");
+
+        try {
+            const response = await fetch("http://localhost:3000/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ email, password })
+            });
+        } catch (e) {
+            setError("An error occurred" + e.message);
         }
     }
 
