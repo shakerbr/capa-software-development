@@ -8,6 +8,13 @@ dotenv.config();
 
 const app = express();
 
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+});
+
 const pool = mysql.createPool({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
@@ -63,6 +70,6 @@ app.post('/login', async (req, res) => {
   res.json({ message: 'You are logged in successfully', token });
 });
 
-app.listen(3003, () => {
-  console.log('Server is running on port 3003');
+app.listen(3000, () => {
+  console.log('Server is running on port http://localhost:3000');
 });
